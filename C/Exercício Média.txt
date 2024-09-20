@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(){
+    
+    float A, B, peso1 = 3.5, peso2 = 7.5, MEDIA;
+    scanf ("%f", &A);
+    scanf ("%f", &B);
+    
+    if (A < 0 || A > 10){
+        printf ("Valor inválido");
+        return 0;
+    }
+    
+    if (B < 0 || B > 10){
+        printf ("Valor inválido");
+        return 0;
+    }
+    
+    MEDIA = ((A * peso1) + (B * peso2)) / 11;
+    printf ("MEDIA = %.5f\n", MEDIA);
+    return 0;
+}

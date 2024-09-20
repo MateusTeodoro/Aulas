@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+    
+    int codigo1, unidade1, codigo2, unidade2;
+    float preco1, preco2, somaUnidade1, somaUnidade2, total;
+    
+    scanf ("%d %d %f", &codigo1, &unidade1, &preco1);
+    scanf ("%d %d %f", &codigo2, &unidade2, &preco2);
+    
+    somaUnidade1 = unidade1 * preco1;
+    somaUnidade2 = unidade2 * preco2;
+    total = somaUnidade1 + somaUnidade2;
+    
+    printf ("VALOR A PAGAR: R$ %.2f\n", total);
+    return 0;
+}
