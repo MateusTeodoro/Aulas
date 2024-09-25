@@ -1,0 +1,14 @@
+#include <stdio.h>
+
+int main(){
+    
+    double A, R, R2;
+    scanf ("%lf", &R);
+    
+    R2 = R * R;
+    A = R2 * 3.14159;
+    
+    printf ("A=%.4lf\n", A);
+    
+    return 0;
+}
