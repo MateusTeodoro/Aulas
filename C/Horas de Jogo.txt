@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main() {
+
+    int horaI, horaF, minutoI, minutoF, horaJ, minutoJ;
+
+    scanf("%d %d %d %d", &horaI, &minutoI, &horaF, &minutoF);
+    horaJ = horaF - horaI;
+    minutoJ = minutoF - minutoI;
+
+    if(minutoJ < 0){
+        horaJ = horaJ -1;
+        minutoJ = minutoJ +60;
+
+    }
+    if(horaJ == 0 && minutoJ == 0){
+        horaJ = 24;
+        minutoJ = 0;
+    }
+
+    if (horaJ < 0 ){
+        horaJ = horaJ + 24;
+    }
+    printf("O JOGO DUROU %d HORA(S) E %d MINUTO(S)\n", horaJ, minutoJ);
+
+    return 0;
+}
