@@ -1,0 +1,20 @@
+#include <stdio.h>
+#define PESO1 2 
+#define PESO2 3 
+#define PESO3 5
+
+int main()
+{
+    int valor;
+    scanf("%d", &valor);
+    
+    for (valor = valor; valor > 0; valor--){
+        
+        float nota1, nota2, nota3, media;
+        scanf ("%f %f %f", &nota1, &nota2, &nota3);
+        
+        media = (nota1 * PESO1 + nota2 * PESO2 + nota3 * PESO3) / 10;
+        printf ("%.1f\n", media);
+    }
+    return 0;
+}

@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main()
+{
+    int idade, numero = 0, cont = 0;
+    float media, total = 0.0;
+    
+    while (cont >= 0){
+        scanf ("%d\n", &idade);
+        
+        if (idade < 0){
+            cont = -1;
+        }
+        
+        else {
+            numero = numero + 1;
+            total = total + idade;
+        }
+    }
+
+    media = total / numero;
+    printf ("%.2f\n", media);
+    return 0;
+}

@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+    int rodada, valor1, valor2, placar1 = 0, placar2 = 0;
+    scanf("%d", &rodada);
+    
+    while (rodada > 0){
+        
+        for (rodada = rodada; rodada > 0; rodada--){
+            scanf("%d %d", &valor1, &valor2);
+            
+            if (valor1 > valor2){
+                placar1 = placar1 + 1;
+            }
+            
+            else if (valor2 > valor1){
+                placar2 = placar2 + 1;
+            }
+        }
+        printf ("%d %d\n", placar1, placar2);
+        placar1 = 0;
+        placar2 = 0;
+        scanf ("%d", &rodada);
+    }
+    return 0;
+}

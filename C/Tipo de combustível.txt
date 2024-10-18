@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main()
+{
+    int entrada, c1 = 0, c2 = 0, c3 = 0, controle = 0;
+    
+    while (controle != 4){
+        scanf("%d", &entrada);
+        
+        if (entrada == 1){
+            c1 = c1 + 1;
+        }
+        else if (entrada == 2){
+            c2 = c2 + 1;
+        }
+        else if (entrada == 3){
+            c3 = c3 + 1;
+        }
+        else if (entrada == 4){
+            controle = 4;
+        }
+    }
+    
+    printf("MUITO OBRIGADO\n");
+    printf ("Alcool: %d\n", c1);
+    printf("Gasolina: %d\n", c2);
+    printf("Diesel: %d\n", c3);
+    return 0;
+}

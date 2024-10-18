@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main()
+{
+    int filhos, filhas, total = 1;
+    
+    while (total > 0){
+        scanf ("%d %d", &filhos, &filhas);
+        total = filhos + filhas;
+        
+        if (total == 0){
+            return 0;
+        }
+        printf("%d\n", total);
+    }
+    return 0;
+}
