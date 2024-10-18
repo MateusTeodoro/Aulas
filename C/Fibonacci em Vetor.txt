@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main()
+{
+    int i, j, T = 0, num = 0;
+    long long int fibT = 0, fib0 = 0, fib1 = 1;
+    scanf("%d", &T);
+    
+    for (i = 0; i < T; i++){
+        scanf("%d", &num);
+        
+        for (j = 0; j < num; j++){
+            
+            fib0 = fib1;
+            fib1 = fibT;
+            fibT = fib0 + fib1;
+        }
+        
+        printf("Fib(%d) = %lld\n", num, fibT);
+        fib0 = 0;
+        fib1 = 1;
+        fibT = 0;
+    }
+    return 0;
+}
