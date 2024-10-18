@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int cmp(const void *a, const void *b) {
+    return (*(int *)a - *(int *)b);
+}
+
+int main() {
+    int i, N = 0;
+    scanf("%d", &N);
+    
+    int vet[N];
+    
+    for (i = 0; i < N; i++) {
+        scanf("%d", &vet[i]);
+    }
+    
+    // Ordenar o vetor
+    qsort(vet, N, sizeof(int), cmp);
+    
+    int cont = 1; // Contador de repetições
+    
+    for (i = 1; i <= N; i++) {
+        if (i < N && vet[i] == vet[i - 1]) {
+            cont++;
+        } else {
+            printf("%d aparece %d vez(es)\n", vet[i - 1], cont);
+            cont = 1; // Reiniciar o contador
+        }
+    }
+    
+    return 0;
+}
