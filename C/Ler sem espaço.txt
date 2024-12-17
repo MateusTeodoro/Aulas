@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+    int tamanho = 0;
+    char str[100];
+    
+    // Lê a string inteira, incluindo espaços
+    scanf("%[^\n]%*c", str);
+    
+    // Percorre a string e conta apenas os caracteres diferentes de espaço
+    for (int i = 0; str[i] != '\0'; i++) {
+        if (str[i] != ' ') {  // Ignora espaços
+            tamanho++;
+        }
+    }
+    
+    // Exibe o tamanho da string sem contar os espaços
+    printf("%d", tamanho);
+    
+    return 0;
+}
