@@ -1,0 +1,41 @@
+#include <stdio.h>
+
+int main() {
+    int N, M;
+
+    // Entrada das dimensões da matriz
+    printf("Digite o número de linhas (N): ");
+    scanf("%d", &N);
+    printf("Digite o número de colunas (M): ");
+    scanf("%d", &M);
+
+    int matriz[N][M];
+
+    // Preenchendo a matriz
+    printf("Digite os valores da matriz (total de %d valores):\n", N * M);
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Procurando por zeros e imprimindo a posição
+    printf("Posições onde a matriz contém zero:\n");
+    int encontrouZero = 0; // Variável para verificar se encontrou zero
+
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < M; j++) {
+            if (matriz[i][j] == 0) {
+                printf("Valor zero encontrado na linha %d, coluna %d\n", i, j);
+                encontrouZero = 1;
+            }
+        }
+    }
+
+    // Se não encontrou nenhum zero
+    if (!encontrouZero) {
+        printf("Não há valores zero na matriz.\n");
+    }
+
+    return 0;
+}
