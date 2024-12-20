@@ -1,0 +1,62 @@
+#include <stdio.h>
+
+int main() {
+    int M, N;
+
+    // Recebe o número de linhas e colunas
+    printf("Digite o número de linhas (M): ");
+    scanf("%d", &M);
+    printf("Digite o número de colunas (N): ");
+    scanf("%d", &N);
+
+    int matriz[M][N];
+
+    // Preenchendo a matriz com os valores fornecidos
+    printf("Digite os elementos da matriz:\n");
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            scanf("%d", &matriz[i][j]);
+        }
+    }
+
+    // Criando uma matriz auxiliar para marcar as linhas e colunas a serem zeradas
+    int linhasZeradas[M], colunasZeradas[N];
+
+    // Inicializando as matrizes de controle para zero
+    for (int i = 0; i < M; i++) {
+        linhasZeradas[i] = 0;
+    }
+    for (int j = 0; j < N; j++) {
+        colunasZeradas[j] = 0;
+    }
+
+    // Identificando as linhas e colunas que devem ser zeradas
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            if (matriz[i][j] == 0) {
+                linhasZeradas[i] = 1;
+                colunasZeradas[j] = 1;
+            }
+        }
+    }
+
+    // Zerar as linhas e colunas de acordo com as marcas
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            if (linhasZeradas[i] == 1 || colunasZeradas[j] == 1) {
+                matriz[i][j] = 0;
+            }
+        }
+    }
+
+    // Exibindo a matriz modificada
+    printf("\nMatriz modificada:\n");
+    for (int i = 0; i < M; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d ", matriz[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
