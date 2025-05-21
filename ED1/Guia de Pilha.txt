@@ -1,13 +1,14 @@
-Função criarPilha
+-----------------------------------------------------
+Função criar a Pilha
 
-1- cria a pilha
+1 - cria a pilha
 2 - aloca memoria da struct pilha
 3 - verifica ponteiro válido, aponta pra zero
 4 - retorna pilha
 
 -----------------------------------------------------
 
-Função libera Pilha
+Função liberar Pilha
 
 1 - libera memória da pilha
 
@@ -33,9 +34,45 @@ Função inserir Pilha
 2 - verifica se pilha cheia
 3 - vetor na posição topo recebe struct
 4 - topo aumenta 1++
+5 - retorna 1
+
+-----------------------------------------------------
 
 Função remover Pilha
 
 1 - verifica ponteiro válido ou pilha vazia
 2 - topo diminui 1--
 3 - retorna 1
+
+-----------------------------------------------------
+
+Função consultar topo pilha
+
+1 - verifica ponteiro válido ou pilha vazia
+2 - struct recebe vetor na posicao topo - 1
+3 - retorna 1
+
+-----------------------------------------------------
+
+Função tamanho pilha
+
+1 - verifica ponteiro válido
+2 - retorna variável topo
+
+-----------------------------------------------------
+
+Função imprimir a pilha
+
+1 - cria i
+2 - cria loop do topo -1, começando no zero, decrescente
+3 - funcao imprime número/aluno no endereço da pilha na posição i
+4 - print \n dentro do loop
+
+-----------------------------------------------------
+
+Função imprimir número/aluno
+
+1 - verifica struct válida
+2 - printf nas variáveis da struct
+
+-----------------------------------------------------
