@@ -151,46 +151,34 @@ ALTER TABLE trabalha
 ADD CONSTRAINT fk_trab_proj FOREIGN KEY (id_proj) REFERENCES projeto (id_proj) ON DELETE CASCADE;
 
 -- Lista 01
-select nome_func as "Nome Funcionário" from funcionario where id_superv is null;
 
--- Lista 02
-select nome_func, nome_depto, nome_proj from funcionario as f
-join trabalha as t on f.id_func = t.id_func
-join projeto as p on t.id_proj = p.id_proj
-join departamento as d on p.id_depto = d.id_depto
-order by nome_depto, nome_proj;
+set @taxa = 0.3;
 
--- Lista 03
-select sum(salario) as soma, avg(salario) as media, max(salario), min(salario) from funcionario;
+DELIMITER //
+create procedure aplicarTaxaFuncionario(in taxa float, in id_func int)
+begin
+	if taxa is not null then
+		update funcionario 
+		set salario = (salario + salario * taxa)
+		where funcionario.id_func = id_func;
+	end if;
+end //
+DELIMITER ;
 
--- Lista 04
-select sum(salario), avg(salario), max(salario), min(salario) from funcionario f
-join departamento d on f.id_depto = d.id_depto
-where d.nome_depto = "Pesquisa";
+DELIMITER //
+CREATE PROCEDURE aplicarTaxaFuncionario(IN taxa FLOAT, IN id_func INT)
+BEGIN
+    SELECT taxa AS taxa_recebida;
+    
+    IF taxa IS NOT NULL THEN
+        UPDATE funcionario 
+        SET salario = salario + salario * taxa
+        WHERE funcionario.id_func = id_func;
+    END IF;
+END //
+DELIMITER ;
 
--- Lista 05
-select nome_func from funcionario f
-left join dependente d on f.id_func = d.id_func
-where d.id_dep is null;
+SELECT * FROM funcionario WHERE id_func = 3;
+call aplicarTaxaFuncionario(@taxa, 3);
 
--- Lista 06
-
--- Lista 07
-select nome_proj, localizacao, f.nome_func from projeto p
-left join trabalha t on p.id_proj = t.id_proj
-join funcionario f on t.id_func = f.id_func
-where f.id_func is null;
-
--- Lista 08
-select nome_func from funcionario f
-left join dependente d on f.id_func = d.id_func
-join trabalha t on f.id_func = t.id_func
-join projeto p on t.id_proj = p.id_proj
-where d.id_func is null and t.id_func is null;
-
--- Lista 09
-select f.nome_func as funcionario, g.nome_func as gerente from funcionario f
-left join funcionario g on f.id_func = g.id_superv;
-
--- Lista 10
-
+update funcionario set salario = 500 where id_func = 3;
