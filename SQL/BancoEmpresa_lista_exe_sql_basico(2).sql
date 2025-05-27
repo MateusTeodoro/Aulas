@@ -151,37 +151,20 @@ ALTER TABLE trabalha
 ADD CONSTRAINT fk_trab_proj FOREIGN KEY (id_proj) REFERENCES projeto (id_proj) ON DELETE CASCADE;
 
 -- Lista 01
-
-set @taxa = 0.3;
-
 DELIMITER //
-create procedure aplicarTaxaFuncionario(in taxa float, in id_func int)
+create procedure aplicarTaxaFuncionario(in id_func int)
 begin
-	if taxa is not null then
+	declare taxa float default 0.3;
+    if taxa is not null then
 		update funcionario 
-		set salario = (salario + salario * taxa)
+		set salario = round(salario + salario * taxa, 2)
 		where funcionario.id_func = id_func;
 	end if;
 end //
 DELIMITER ;
 
-DELIMITER //
-CREATE PROCEDURE aplicarTaxaFuncionario(IN taxa FLOAT, IN id_func INT)
-BEGIN
-    SELECT taxa AS taxa_recebida;
-    
-    IF taxa IS NOT NULL THEN
-        UPDATE funcionario 
-        SET salario = salario + salario * taxa
-        WHERE funcionario.id_func = id_func;
-    END IF;
-END //
-DELIMITER ;
-
 SELECT * FROM funcionario WHERE id_func = 3;
-call aplicarTaxaFuncionario(@taxa, 3);
-
-update funcionario set salario = 500 where id_func = 3;
+call aplicarTaxaFuncionario(3);
 
 
 -- Lista 02
