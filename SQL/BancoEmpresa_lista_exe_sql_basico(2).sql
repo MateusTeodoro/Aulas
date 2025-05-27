@@ -182,3 +182,29 @@ SELECT * FROM funcionario WHERE id_func = 3;
 call aplicarTaxaFuncionario(@taxa, 3);
 
 update funcionario set salario = 500 where id_func = 3;
+
+
+-- Lista 02
+
+create table hora_extra(
+id_tabela_hora_extra int primary key not null,
+horas_extras float not null,
+funcionario_hora_extra int not null,
+foreign key fk_id_func(funcionario_hora_extra) references funcionario(id_func)
+);
+
+DELIMITER //
+create procedure valorHoraExtra(in id_func int, out horas_extras float)
+begin
+select sum(num_horas) from funcionario f
+join trabalha t on f.id_func = t.id_func
+join projeto p on t.id_proj = p.id_proj
+where t.id_func = id_func;
+
+end //
+DELIMITER ;
+
+select sum(num_horas) from funcionario f
+join trabalha t on f.id_func = t.id_func
+join projeto p on t.id_proj = p.id_proj
+where f.id_func = 1;
