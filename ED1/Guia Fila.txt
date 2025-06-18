@@ -1,0 +1,9 @@
+Cria Fila -
+
+1 - cria fila
+2 - aloca memoria da fila
+3 - verifica ponteiro valido, seta final e inicio para 0
+4 - retorna fila
+
+
+Fila cheia -
