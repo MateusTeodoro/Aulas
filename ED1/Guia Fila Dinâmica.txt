@@ -1,0 +1,41 @@
+Cria Fila -
+
+1 - Cria fila e aloca memória
+2 - Verifica ponteiro válido com if
+3 - seta inicio e final para NULL e qtd zero se válido
+4 - retorna fila
+
+______________________________________________________________________________________________________________
+
+
+Insere fila -
+
+1 - verifica ponteiro válido
+2 - Cria nó e aloca memória
+3 - verifica nó valido
+
+----------------------------------
+
+4 - nó recebe valor no campo dados
+5 - seta o nó->prox para NULL
+
+----------------------------------
+
+SE a fila estiver vazia:
+
+6.1 - fila->inicio recebe nó
+
+----------------------------------
+
+SE NÃO estiver fazia
+
+6.2 - fi->final->prox recebe o nó
+
+----------------------------------
+
+7 - final recebe o nó
+8 - aumenta a qtd da fila
+9 - retorna 1
+
+______________________________________________________________________________________________________________
+
