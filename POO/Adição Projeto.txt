@@ -1,0 +1,64 @@
+public void buscarPublicacao(Publicacao pub)
+    {
+        for (Publicacao publicacao : lstPublicacao)
+        {
+            if(pub.getTitulo().equals(publicacao.getTitulo()))
+            {
+                System.out.println("Informacoes da publicacao: ");
+                pub.detalhes();
+            }
+            
+            else
+            {
+                System.out.println("Nenhuma publicacao encontrada!");
+            }
+        }
+    }
+
+
+public void buscarPublicacao(String titulo)
+    {
+        Map<String, Publicacao> mapBusca = new HashMap<>();
+        
+        Publicacao publicacaoEncontrada = mapBusca.get(titulo);
+        
+        if(publicacaoEncontrada != null)
+        {
+            publicacaoEncontrada.detalhes();
+        }
+        
+        else
+        {
+            System.out.println("Nenhuma publicacao encontrada!");
+        }
+    }
+
+
+public void emprestimo(Publicacao pub)
+    {
+        if(pub.isDisponivel())
+        {
+            pub.setDisponivel(false);
+            System.out.println("Emprestimo realizado!");
+        }
+        
+        else
+        {
+            System.out.println("A publicacao desejada ja foi alugada!");
+        }
+    }
+
+
+public void devolucao(Publicacao pub)
+    {
+        if(pub.isDisponivel())
+        {
+            System.out.println("A publicacao ja esta disponivel!");
+        }
+        
+        else
+        {
+            pub.setDisponivel(true);
+            System.out.println("A devolucao foi realizada com sucesso!");
+        }
+    }
