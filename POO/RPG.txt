@@ -395,3 +395,8 @@ data_inicio: Data de início da fase.
 data_fim: Data de conclusão da fase.
 
 Essa tabela pode ser útil para controlar onde os personagens estão no mundo do jogo e suas conquistas.
+
+select p.nome as 'Nome', p.raca as 'Raça', p.vida as 'Vida', p.mana as 'Mana', c.nome as 'Classe', c.papel as 'Papel', h.nome as 'Habilidade', h.descricao as 'Descrição' from personagem p 
+left join classe c on p.id_classe = c.id_classe
+join habilidades_personagem hp on p.id_personagem = hp.id_personagem
+join habilidade h on hp.id_habilidade = h.id_habilidade;
